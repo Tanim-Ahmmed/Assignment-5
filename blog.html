@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-5</title>
    
-
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,18 +47,59 @@
                 <div class="w-[90%] m-auto ">
             <div class="navbar  bg-nav-color bg-opacity-0 ">
                 <div class="navbar-start">
-                  <a href="index.html" class="btn bg-btn-color text-lg ">Home</a>
+                  <a href="index.html" class="btn bg-btn-color hover:bg-btn-color text-lg ">Home</a>
                 </div>
                 <div class="navbar-center">
                     <img src="./assets/logo.png" class="h-12 w-12" alt="">
-                  <a class="btn btn-ghost text-lg md:block hidden">Donate Bangladesh</a>
+                  <a class="ml-4 font-bold text-lg md:block hidden">Donate Bangladesh</a>
                 </div>
                 <div class="navbar-end">
                     <img src="./assets/coin.png" class="h-7 w-7" alt="">
-                  <h2 class="text-home-color text-lg"> <span id="account-balance">5500</span> BDT</h2>
+                  <h2 class="text-home-color text-lg ml-2"> <span id="account-balance">5500</span> BDT</h2>
             </div>
               </div>
             </div>
             </div>
+
+
+
+
+            <main class="w-[90%] m-auto mt-8">
+              <h1 class="text-4xl font-bold">Important FAQ <i class="fa-solid fa-question"></i></h1>
+              <div class="join join-vertical w-full mt-6">
+                <div class="collapse collapse-arrow join-item border-base-300 border">
+                  <input type="radio" name="my-accordion-4" checked="checked" />
+                  <div class="collapse-title text-xl font-medium">What is the Document Object Model (DOM)?</div>
+                  <div class="collapse-content">
+                    <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.</p>
+                  </div>
+                </div>
+                <div class="collapse collapse-arrow join-item border-base-300 border">
+                  <input type="radio" name="my-accordion-4" />
+                  <div class="collapse-title text-xl font-medium">How do you select an element from the DOM?</div>
+                  <div class="collapse-content">
+                    <p>There is 5 different way to select an element from the DOM. <br> 1 .getElementById(), <br>
+                      2 .getElementsByClassName(),  <br>   3  .getElementsByTagName(),  <br>
+                    4 .querySelector(), <br> 5  .querySelectorAll().  </p>
+                  </div>
+                </div>
+                <div class="collapse collapse-arrow join-item border-base-300 border">
+                  <input type="radio" name="my-accordion-4" />
+                  <div class="collapse-title text-xl font-medium">What is event delegation in the context of the DOM,and why is it useful?</div>
+                  <div class="collapse-content">
+                    <p>Event delegation leverages event propagation to manage events efficiently.Instead of adding event listeners to multiple child elements, you add a single event listener to a parent element. This listener takes advantage of event bubbling to handle events for its child elements.</p>
+                  </div>
+                </div>
+
+                <div class="collapse collapse-arrow join-item border-base-300 border">
+                  <input type="radio" name="my-accordion-4" />
+                  <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes and styles using the DOM?</div>
+                  <div class="collapse-content">
+                    <p>We can manipulate an element's attributes and styles using the DOM by accessing the element and using properties like `setAttribute()` for attributes and `style` for CSS styles, like this: `element.setAttribute('attributeName', 'value'); element.style.propertyName = 'value';`.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </main>
 </body>
 </html>
