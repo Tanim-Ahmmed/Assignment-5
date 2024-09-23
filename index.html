@@ -1,21 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-5</title>
-    <link rel="stylesheet" href="style.css">
+   
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
 
     <!-- tailwind and daisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+<style>
+    body{
+        font-family: "Lexend", sans-serif;
+    }
+</style>
+
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nav-color': '#F9F7F3',
+            'btn-color': '#B4F461',
+            'home-color': '#111111B3',
+            'btn-2'    :'#1111110D',
+          }
+        }
+      }
+    }
+  </script>
     
 </head>
 <body>
-    
-   <h1>hi</h1>
+        <header class="fixed backdrop-blur w-full" >
+            <div class="bg-nav-color pb-10 pt-4 w-full">
+                <div class="w-[90%] m-auto">
+            <div class="navbar bg-base-100 bg-nav-color ">
+                <div class="navbar-start">
+                  <a href="" class="btn bg-btn-color text-lg ">Blog</a>
+                </div>
+                <div class="navbar-center">
+                    <img src="./assets/logo.png" class="h-12 w-12" alt="">
+                  <a class="btn btn-ghost text-lg">Donate Bangladesh</a>
+                </div>
+                <div class="navbar-end">
+                    <img src="./assets/coin.png" class="h-7 w-7" alt="">
+                  <h2 class="text-home-color text-lg"> <span>5500</span> BDT</h2>
+            </div>
+              </div>
+            </div>
+            </div>
+            <div class=" flex justify-center gap-4 mt-20 pb-6">
+                <button class="btn btn-lg bg-btn-color ">Donation</button>
+                <button class="btn btn-lg text-home-color  bg-white">History</button>
+            </div>
+        </header>
+ 
+        <!-- main part starts from here  -->
+    <main class="w-[90%] m-auto">
+      
+      <!-- nowakhali part starts here  -->
+     <div class="pt-80 " >
+      <div class="lg:grid grid-cols-2 gap-8 p-8 border-2 rounded-xl ">
+        <img src="./assets/noakhali.png" class="w-full h-auto object-cover">
 
+        <div >
+          <div class="lg:mt-0 sm:mt-6 btn text-lg text-home-color ">
+          <img src="./assets/coin.png" alt="">
+          <h2><span>0</span> BDT</h2>
+         </div>
+          <h2 class="mt-4 text-lg font-bold">Donate for Flood at Noakhali, Bangladesh</h2>
+          <p class="mt-4 text-home-color"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
+
+          <input type="text" placeholder="Write Donation Amount"
+            class="input input-bordered input-lg w-full mt-6" />
+            <button class="btn btn-lg bg-btn-color w-full mt-4">Donate Now</button>
+        </div>
+      </div>
+     </div>
+
+
+    </main>
+   
+    <footer class="mt-20 w-full h-40 bg-nav-color" >
+
+    </footer>
 
 
     <script src="app.js"></script>
