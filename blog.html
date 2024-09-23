@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-5</title>
+   
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <!-- tailwind and daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    body{
+        font-family: "Lexend", sans-serif;
+    }
+</style>
+
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nav-color': '#F9F7F3',
+            'btn-color': '#B4F461',
+            'home-color': '#111111B3',
+            'btn-2'    :'#1111110D',
+          }
+        }
+      }
+    }
+  </script>
+    
+</head>
+<body>
+          <!-- nav part of blog starts here  -->
+
+            <div class="bg-nav-color pb-10 pt-4 w-full bg-opacity-90 ">
+                <div class="w-[90%] m-auto ">
+            <div class="navbar  bg-nav-color bg-opacity-0 ">
+                <div class="navbar-start">
+                  <a href="index.html" class="btn bg-btn-color text-lg ">Home</a>
+                </div>
+                <div class="navbar-center">
+                    <img src="./assets/logo.png" class="h-12 w-12" alt="">
+                  <a class="btn btn-ghost text-lg md:block hidden">Donate Bangladesh</a>
+                </div>
+                <div class="navbar-end">
+                    <img src="./assets/coin.png" class="h-7 w-7" alt="">
+                  <h2 class="text-home-color text-lg"> <span id="account-balance">5500</span> BDT</h2>
+            </div>
+              </div>
+            </div>
+            </div>
+</body>
+</html>

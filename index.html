@@ -39,27 +39,31 @@
     
 </head>
 <body>
-        <header class="fixed backdrop-blur w-full" >
-            <div class="bg-nav-color pb-10 pt-4 w-full">
-                <div class="w-[90%] m-auto">
-            <div class="navbar bg-base-100 bg-nav-color ">
+        <header class="fixed backdrop-blur w-full " >
+
+
+          <!-- nav part starts here  -->
+
+            <div class="bg-nav-color pb-10 pt-4 w-full bg-opacity-90 ">
+                <div class="w-[90%] m-auto ">
+            <div class="navbar  bg-nav-color bg-opacity-0 ">
                 <div class="navbar-start">
-                  <a href="" class="btn bg-btn-color text-lg ">Blog</a>
+                  <a href="blog.html" class="btn bg-btn-color text-lg ">Blog</a>
                 </div>
                 <div class="navbar-center">
                     <img src="./assets/logo.png" class="h-12 w-12" alt="">
-                  <a class="btn btn-ghost text-lg">Donate Bangladesh</a>
+                  <a class="btn btn-ghost text-lg md:block hidden">Donate Bangladesh</a>
                 </div>
                 <div class="navbar-end">
                     <img src="./assets/coin.png" class="h-7 w-7" alt="">
-                  <h2 class="text-home-color text-lg"> <span>5500</span> BDT</h2>
+                  <h2 class="text-home-color text-lg"> <span id="account-balance">5500</span> BDT</h2>
             </div>
               </div>
             </div>
             </div>
             <div class=" flex justify-center gap-4 mt-20 pb-6">
-                <button class="btn btn-lg bg-btn-color ">Donation</button>
-                <button class="btn btn-lg text-home-color  bg-white">History</button>
+                <button id="donation-btn" class="btn btn-lg  bg-btn-color">Donation</button>
+                <button id="history-btn" class="btn btn-lg text-home-color bg-white">History</button>
             </div>
         </header>
  
@@ -68,16 +72,43 @@
       
       <!-- nowakhali part starts here  -->
      <div class="pt-80 " >
+
+      <div id="donation-section"  class="">
+      <div>
       <div class="lg:grid grid-cols-2 gap-8 p-8 border-2 rounded-xl ">
         <img src="./assets/noakhali.png" class="w-full h-auto object-cover">
 
         <div >
-          <div class="lg:mt-0 sm:mt-6 btn text-lg text-home-color ">
+          <div class="lg:mt-0 mt-6 btn text-lg text-home-color ">
           <img src="./assets/coin.png" alt="">
-          <h2><span>0</span> BDT</h2>
+          <h2><span id="noakhali-balance">0</span> BDT</h2>
          </div>
           <h2 class="mt-4 text-lg font-bold">Donate for Flood at Noakhali, Bangladesh</h2>
-          <p class="mt-4 text-home-color"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
+          <p class="mt-4 text-home-color text-base"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
+
+          <input id="input-amount-noakhali" type="text" placeholder="Write Donation Amount"
+            class="input input-bordered input-lg w-full mt-6" />
+            <button onclick="donateMoney(this)" class="btn btn-lg bg-btn-color w-full mt-4">Donate Now</button>
+        </div>
+      </div>
+     </div>
+
+
+
+
+
+     <!-- feni part starts here  -->
+     <div class="mt-8 " >
+      <div class="lg:grid grid-cols-2 gap-8 p-8 border-2 rounded-xl ">
+        <img src="./assets/feni.png" class="w-full h-auto object-cover">
+
+        <div >
+          <div class="lg:mt-0 mt-6 btn text-lg text-home-color ">
+          <img src="./assets/coin.png" alt="">
+          <h2><span >0</span> BDT</h2>
+         </div>
+          <h2 class="mt-4 text-lg font-bold">Donate for Flood Relief in Feni,Bangladesh</h2>
+          <p class="mt-4 text-home-color text-base"> The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.</p>
 
           <input type="text" placeholder="Write Donation Amount"
             class="input input-bordered input-lg w-full mt-6" />
@@ -87,6 +118,61 @@
      </div>
 
 
+
+
+
+
+
+     <!-- Quota part starts here  -->
+     <div class="mt-8 " >
+      <div class="lg:grid grid-cols-2 gap-8 p-8 border-2 rounded-xl ">
+        <img src="./assets/quota-protest.png" class="w-full h-auto object-cover">
+
+        <div >
+          <div class="lg:mt-0 mt-6 btn text-lg text-home-color ">
+          <img src="./assets/coin.png" alt="">
+          <h2><span>0</span> BDT</h2>
+         </div>
+          <h2 class="mt-4 text-lg font-bold">Aid for Injured in the Quota Movement</h2>
+          <p class="mt-4 text-home-color text-base"> The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.</p>
+
+          <input type="text" placeholder="Write Donation Amount"
+            class="input input-bordered input-lg w-full mt-6" />
+            <button class="btn btn-lg bg-btn-color w-full mt-4">Donate Now</button>
+        </div>
+      </div>
+     </div>
+    </div>
+
+
+    
+
+     <!-- modal -->
+
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box flex flex-col justify-center items-center text-center">
+    <h3 class="text-3xl font-bold ">Congrates!</h3>
+    <img src="./assets/coin.png " class="mt-4" alt="">
+    <p class="py-4 ">You Have Donated for Humankind</p>
+    <h4 class="text-lg font-bold">Successfully</h4>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">close confirmation</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
+
+     <!-- history part-->
+
+     <div id="history-section"  class="border-2 rounded-xl mt-8 w-full p-8 hidden">
+      <h2 class="text-lg font-bold">96500 Taka is Donated for famine-2024 at Feni, Bangladesh</h2>
+      <p  class="text-home-color mt-4">Date : Tue Sep 17 2024 08:39:11 GMT +0600 (Bangladesh Standard Time)</p>
+     </div>
+    </div>
     </main>
    
     <footer class="mt-20 w-full h-40 bg-nav-color" >
