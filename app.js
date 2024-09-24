@@ -1,50 +1,119 @@
- 
- const accountBalance = parseFloat(document.getElementById('account-balance').innerText);
-
-
- const feniAmount =parseFloat (document.getElementById('input-amount-feni').value);
- const feniBalance = parseFloat(document.getElementById('feni-balance').innerText);
-
- const quotaAmount =parseFloat (document.getElementById('input-amount-quota').value);
- const quotaBalance = parseFloat(document.getElementById('quota-balance').innerText);
-
-
- document.getElementById('donate-Noakhali').addEventListener('click',function(){
-   const accountBalance = parseFloat(document.getElementById('account-balance').innerText);
-   const noakhaliAmount =parseFloat (document.getElementById('input-amount-noakhali').value);
-   const noakhaliAmountEl =document.getElementById('input-amount-noakhali');
-   const noakhaliBalance = parseFloat(document.getElementById('noakhali-balance').innerText);
-    
-   noakhaliAmountEl.value = '';
-   
- const {newBalance, remainingBalance }=  donateMoney(accountBalance,noakhaliAmount,noakhaliBalance)
-   
-  if(newBalance !== undefined){
-   document.getElementById('noakhali-balance').innerText =newBalance;
-   document.getElementById('account-balance').innerText = remainingBalance;
-   modal();
-  }
-
- });
 
 
 
 
-function donateMoney(accountBalance, amount,balance) {
+
+
+
+
+
+// noakhali part
+
+document.getElementById('donate-Noakhali').addEventListener('click',function(){
+  const noakhaliBalance = parseFloat(document.getElementById('noakhali-balance').innerText);
+  const inputValue = getInputFieldValueById('input-amount-noakhali');
+
+   const result=  donateMoney(noakhaliBalance,inputValue);
+
+ if(result){
+   const {newBalance, remainingBalance } = result;
+  document.getElementById('noakhali-balance').innerText =newBalance;
+  document.getElementById('account-balance').innerText = remainingBalance;
+  modal();
+ }
+
+});
+
+
+
+
+
+
+// feni part
+
+document.getElementById('donate-feni').addEventListener('click',function(){
+  const feniBalance = parseFloat(document.getElementById('feni-balance').innerText);
+  const inputValue = getInputFieldValueById('input-amount-feni');
+
+ const result=  donateMoney(feniBalance,inputValue);
+
+ if(result){
+   const {newBalance, remainingBalance } = result;
+  document.getElementById('feni-balance').innerText =newBalance;
+  document.getElementById('account-balance').innerText = remainingBalance;
+  modal();
+ }
+
+});
+
+
+
+
+// quota part 
+ document.getElementById('donate-quota').addEventListener('click',function(){
+  const quotaBalance = parseFloat(document.getElementById('quota-balance').innerText);
+  const inputValue = getInputFieldValueById('input-amount-quota');
+  
+  const result=  donateMoney(quotaBalance,inputValue);
+
+ if(result){
+   const {newBalance, remainingBalance } = result;
+  document.getElementById('quota-balance').innerText =newBalance;
+  document.getElementById('account-balance').innerText = remainingBalance;
+  modal();
+ }
+
+});
+
+
+
+
+
+// common function 
+
+ function getInputFieldValueById(id){
+       const inputValue = parseFloat(document.getElementById(id).value);
+       document.getElementById(id).value='';
+       return inputValue;
+ }
+
+
+
+// modal function
+
+function modal(){
+  const modal = document.getElementById('my_modal_1');
+  modal.showModal();
+ }
+
+
+
+
+
+// donation calculation
+
+function donateMoney(balance, donateAmount ) {
        
-   if(amount > 0 && accountBalance >= amount){
-    const newBalance = balance + amount;
-   const remainingBalance = accountBalance - amount;
+  const accountBalance = parseFloat(document.getElementById('account-balance').innerText);
+
+   if(donateAmount > 0 && accountBalance >= donateAmount){
+    const newBalance = balance + donateAmount;
+   const remainingBalance = accountBalance - donateAmount;
      return {newBalance, remainingBalance }; 
    }else{
        alert('invalid input');
-       return undefined;
+       return null;
    }  
 
 }
 
 
 
+
+
+
+
+// donation and history button functionality
 
  const historyBtn = document.getElementById('history-btn');
  historyBtn.addEventListener('click',function(){
@@ -71,39 +140,3 @@ function donateMoney(accountBalance, amount,balance) {
     donationBtn.classList.add('bg-btn-color','hover:bg-btn-color');
     donationBtn.classList.remove('bg-white','text-home-color')
  })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function modal(){
- const modal = document.getElementById('my_modal_1');
- modal.showModal();
-}
-
-
-
