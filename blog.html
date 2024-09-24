@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-5</title>
-   
-    <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,17 +58,16 @@
             </div>
             </div>
 
-
-
+            <!-- FAQ part -->
 
             <main class="w-[90%] m-auto mt-8">
-              <h1 class="text-4xl font-bold">Important FAQ <i class="fa-solid fa-question"></i></h1>
+              <h1 class="text-4xl font-bold flex">Important FAQ <img src="./assets/faqIcon.png" class="h-9 w-8 ml-2" alt=""></h1>
               <div class="join join-vertical w-full mt-6">
                 <div class="collapse collapse-arrow join-item border-base-300 border">
                   <input type="radio" name="my-accordion-4" checked="checked" />
                   <div class="collapse-title text-xl font-medium">What is the Document Object Model (DOM)?</div>
                   <div class="collapse-content">
-                    <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.</p>
+                    <p>The Document Object Model (DOM) is a tree structure that represents all the content on a webpage. DOM represents the page so that programs can change the document structure, style, and content.It present the document as nodes and objects.So that, programming languages can interact with pages.</p>
                   </div>
                 </div>
                 <div class="collapse collapse-arrow join-item border-base-300 border">
@@ -87,7 +83,7 @@
                   <input type="radio" name="my-accordion-4" />
                   <div class="collapse-title text-xl font-medium">What is event delegation in the context of the DOM,and why is it useful?</div>
                   <div class="collapse-content">
-                    <p>Event delegation leverages event propagation to manage events efficiently.Instead of adding event listeners to multiple child elements, you add a single event listener to a parent element. This listener takes advantage of event bubbling to handle events for its child elements.</p>
+                    <p>Event delegation is a technique to handle multiple events efficiently. It is useful Because it reduces the number of event listeners, warks even if elements are added dynamically. so it represent less duplication of event listeners.</p>
                   </div>
                 </div>
 
@@ -95,7 +91,7 @@
                   <input type="radio" name="my-accordion-4" />
                   <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes and styles using the DOM?</div>
                   <div class="collapse-content">
-                    <p>We can manipulate an element's attributes and styles using the DOM by accessing the element and using properties like `setAttribute()` for attributes and `style` for CSS styles, like this: `element.setAttribute('attributeName', 'value'); element.style.propertyName = 'value';`.
+                    <p>We can manipulate an element's attributes and styles using the DOM by accessing the element and using properties like, setAttribute() for attributes and style for CSS styles, <br> Such as: element.setAttribute('attributeName', 'value'); <br> element.style.propertyName = 'value';
                     </p>
                   </div>
                 </div>

@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 // noakhali part
 
 document.getElementById('donate-Noakhali').addEventListener('click',function(){
@@ -14,19 +7,17 @@ document.getElementById('donate-Noakhali').addEventListener('click',function(){
   const inputValue = getInputFieldValueById('input-amount-noakhali');
 
    const result=  donateMoney(noakhaliBalance,inputValue);
+   const donationName = 'Flood at Noakhali, Bangladesh';
 
  if(result){
    const {newBalance, remainingBalance } = result;
   document.getElementById('noakhali-balance').innerText =newBalance;
   document.getElementById('account-balance').innerText = remainingBalance;
   modal();
+  donationHistory(inputValue, donationName);
  }
 
 });
-
-
-
-
 
 
 // feni part
@@ -36,12 +27,14 @@ document.getElementById('donate-feni').addEventListener('click',function(){
   const inputValue = getInputFieldValueById('input-amount-feni');
 
  const result=  donateMoney(feniBalance,inputValue);
+const donationName = 'Flood Relief in Feni,Bangladesh';
 
  if(result){
    const {newBalance, remainingBalance } = result;
   document.getElementById('feni-balance').innerText =newBalance;
   document.getElementById('account-balance').innerText = remainingBalance;
   modal();
+  donationHistory(inputValue, donationName);
  }
 
 });
@@ -55,12 +48,14 @@ document.getElementById('donate-feni').addEventListener('click',function(){
   const inputValue = getInputFieldValueById('input-amount-quota');
   
   const result=  donateMoney(quotaBalance,inputValue);
+  const donationName = 'Aid for Injured in the Quota Movement, Bangladesh';
 
  if(result){
    const {newBalance, remainingBalance } = result;
   document.getElementById('quota-balance').innerText =newBalance;
   document.getElementById('account-balance').innerText = remainingBalance;
   modal();
+  donationHistory(inputValue, donationName);
  }
 
 });
@@ -71,10 +66,17 @@ document.getElementById('donate-feni').addEventListener('click',function(){
 
 // common function 
 
- function getInputFieldValueById(id){
-       const inputValue = parseFloat(document.getElementById(id).value);
-       document.getElementById(id).value='';
-       return inputValue;
+function getInputFieldValueById(id){
+  const inputValueEl = document.getElementById(id).value;
+   document.getElementById(id).value='';
+       if(!isNaN(inputValueEl)){
+      const inputValueNum = parseFloat(inputValueEl);
+      const inputValue = inputValueNum.toFixed(2);
+        return parseFloat(inputValue);
+       }
+       else{
+        return ;
+       }    
  }
 
 
@@ -87,6 +89,20 @@ function modal(){
  }
 
 
+// history part starts here
+
+function donationHistory (donationAmount, donationName){
+  const currentTime = new Date ();
+  const div = document.createElement('div');
+  div.classList.add('border-2','rounded-xl','mt-6','w-full','p-8');
+
+  div.innerHTML = `
+        <h2 class="text-lg font-bold">${donationAmount} Taka is Donated for ${donationName}</h2>
+       <p  class="text-home-color mt-4">${currentTime}</p> `
+   
+       document.getElementById('history-section').appendChild(div);
+}
+
 
 
 
@@ -97,11 +113,14 @@ function donateMoney(balance, donateAmount ) {
   const accountBalance = parseFloat(document.getElementById('account-balance').innerText);
 
    if(donateAmount > 0 && accountBalance >= donateAmount){
-    const newBalance = balance + donateAmount;
-   const remainingBalance = accountBalance - donateAmount;
-     return {newBalance, remainingBalance }; 
+    const newAmount = balance + donateAmount;
+   const remainingAmount = accountBalance - donateAmount;
+   
+   const newBalance = newAmount.toFixed(2);
+   const remainingBalance = remainingAmount.toFixed(2);
+     return {  newBalance, remainingBalance }; 
    }else{
-       alert('invalid input');
+       alert('Invalid Donation Amount');
        return null;
    }  
 
